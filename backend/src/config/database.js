@@ -15,6 +15,9 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT,
     dialect: "mysql", // Type de base de données utilisé
     logging: false, // Désactive l'affichage des requêtes SQL dans la console
+    dialectOptions: {
+      decimalNumbers: true, // Permet de gérer correctement les types décimaux
+    },
   },
 );
 

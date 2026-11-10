@@ -3,23 +3,25 @@
 // =============================================
 
 require("dotenv").config();
-const sequelize = require("./src/config/database");
+const app = require("./src/app");
+const { sequelize } = require("./src/models");
 
-// Fonction asynchrone de démarrage
-const start = async () => {
+const PORT = process.env.PORT || 3000;
+
+// Démarre le serveur et se connecte à la base de données
+const startServer = async () => {
   try {
-    // Vérifie que la connexion à la base fonctionne
-    await sequelize.authenticate();
-    console.log("Connexion à la base de données réussie");
+    await sequelize.authenticate(); // Vérifie la connexion à la base de données
+    console.log("Connexion à la base de données réussie.");
 
-    // Test temporaire des modèles : compte les artisans en base
-    const { Artisan } = require("./src/models");
-    const total = await Artisan.count();
-    console.log(`${total} artisans trouvés en base`);
+    //Démarre le serveur Express
+    app.listen(PORT, () => {
+      console.log(`API démarrée sur le port http://localhost:${PORT}`);
+    });
   } catch (error) {
-    console.error("Impossible de se connecter à la base :", error.message);
-    process.exit(1); // Arrête le programme en cas d'échec
+    console.error("Impossible de se connecter à la base de données :", error);
+    process.exit(1); // Arrête le serveur en cas d'erreur de connexion à la base de données
   }
 };
 
-start();
+startServer();
