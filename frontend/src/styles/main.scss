@@ -21,3 +21,21 @@
 @import "variables";
 
 @import "bootstrap/scss/bootstrap";
+
+.bg-bleu-clair {
+  background-color: $bleu-clair; // Bleu très clair de la charte graphique
+}
+
+// Rond bleu contenant le numéro d'une étape
+.etape-numero {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center; // centre le chiffre verticalement
+  justify-content: center; // centre le chiffre horizontalement
+  flex-shrink: 0; // le rond ne s'écrase pas si le texte est long
+  border-radius: 50%; // forme ronde
+  background-color: $bleu; // bleu de la charte
+  color: #fff;
+  margin-right: 1rem;
+}
