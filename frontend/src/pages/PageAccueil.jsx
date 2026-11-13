@@ -33,6 +33,13 @@ function PageAccueil() {
 
   return (
     <>
+      {/* Référencement : titre et description de la page */}
+      <title>Trouve ton artisan - Artisans d'Auvergne-Rhône-Alpes</title>
+      <meta
+        name="description"
+        content="Trouvez un artisan en Auvergne-Rhône-Alpes : bâtiment, services, fabrication, alimentation. Contactez-le en ligne, réponse sous 48h."
+      />
+
       {/* Comment trouver mon artisan*/}
       <section className="container py-5">
         <h1 className="h2 text-secondary mb-4">

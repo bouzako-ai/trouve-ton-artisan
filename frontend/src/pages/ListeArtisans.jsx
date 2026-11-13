@@ -52,6 +52,12 @@ function ListeArtisans() {
 
   return (
     <section className="bg-bleu-clair py-5 h-100">
+      {/* Référencement : titre et description de la page */}
+      <title>{`${titre} - Trouve ton artisan`}</title>
+      <meta
+        name="description"
+        content={`${titre} : trouvez un artisan en Auvergne-Rhône-Alpes et contactez-le en ligne.`}
+      />
       <div className="container">
         <h1 className="h2 text-secondary mb-4">{titre}</h1>
 

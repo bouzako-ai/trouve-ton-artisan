@@ -63,6 +63,13 @@ function FicheArtisan() {
 
   return (
     <>
+      {/* Référencement : titre et description de la page */}
+      <title>{`${artisan.nom} - ${artisan.specialite.nom} à ${artisan.ville} - Trouve ton artisan`}</title>
+      <meta
+        name="description"
+        content={`${artisan.nom}, ${artisan.specialite.nom} à ${artisan.ville}. Consultez sa fiche et contactez-le en ligne.`}
+      />
+
       {/* Informations de l'artisan */}
       <section className="container py-5">
         <div className="row g-4">
