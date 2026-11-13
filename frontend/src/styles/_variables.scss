@@ -1,0 +1,19 @@
+// Charte graphique fournie dans l'énoncé du projet
+
+$bleu-clair: #f1f8fc;
+$bleu: #0074c7;
+$bleu-fonce: #00497c;
+$gris-fonce: #384050;
+$rouge: #cd2c2e;
+$vert: #82b864;
+
+// On remplace les couleurs par défaut de Bootstrap par celles de la charte graphique
+
+$primary: $bleu;
+$secondary: $bleu-fonce;
+$success: $vert;
+$danger: $rouge;
+$body-color: $gris-fonce;
+
+// La police de la charte
+$font-family-base: "Graphik", Arial, sans-serif;

@@ -1,0 +1,54 @@
+// Feuille de style principale
+
+// On commence par importer la police de la charte graphique
+@font-face {
+  font-family: "Graphik";
+  src: url("../assets/fonts/Graphik-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("../assets/fonts/Graphik-Semibold-Trial.otf") format("opentype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("../assets/fonts/Graphik-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+}
+
+// On importe les variables de couleurs et de polices
+@import "variables";
+
+@import "bootstrap/scss/bootstrap";
+
+.bg-bleu-clair {
+  background-color: $bleu-clair; // Bleu très clair de la charte graphique
+}
+
+// Rond bleu contenant le numéro d'une étape
+.etape-numero {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center; // centre le chiffre verticalement
+  justify-content: center; // centre le chiffre horizontalement
+  flex-shrink: 0; // le rond ne s'écrase pas si le texte est long
+  border-radius: 50%; // forme ronde
+  background-color: $bleu; // bleu de la charte
+  color: #fff;
+  margin-right: 1rem;
+}
+
+// Emplacement de l'image de l'artisan (fiche artisan)
+.fiche-image {
+  height: 200px;
+  display: flex;
+  align-items: center; // centre la lettre verticalement
+  justify-content: center; // centre la lettre horizontalement
+  border-radius: 8px; // coins arrondis
+  background-color: $bleu-clair;
+  color: $bleu;
+  font-size: 4rem; // grande lettre
+  font-weight: 600;
+}
