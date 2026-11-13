@@ -39,3 +39,16 @@
   color: #fff;
   margin-right: 1rem;
 }
+
+// Emplacement de l'image de l'artisan (fiche artisan)
+.fiche-image {
+  height: 200px;
+  display: flex;
+  align-items: center; // centre la lettre verticalement
+  justify-content: center; // centre la lettre horizontalement
+  border-radius: 8px; // coins arrondis
+  background-color: $bleu-clair;
+  color: $bleu;
+  font-size: 4rem; // grande lettre
+  font-weight: 600;
+}
