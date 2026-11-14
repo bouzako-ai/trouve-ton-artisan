@@ -15,7 +15,7 @@ const startServer = async () => {
     console.log("Connexion à la base de données réussie.");
 
     //Démarre le serveur Express
-    app.listen(PORT, () => {
+    app.listen(PORT, process.env.IP, () => {
       console.log(`API démarrée sur le port http://localhost:${PORT}`);
     });
   } catch (error) {

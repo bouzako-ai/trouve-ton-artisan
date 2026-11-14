@@ -1,20 +1,36 @@
 // Configuration de l'application Express
 
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
-const app = express();
 const apiKeyMiddleware = require("./middlewares/apiKey");
-
 const artisanRoutes = require("./routes/artisansRoutes");
 const categorieRoutes = require("./routes/categoriesRoutes");
 
-app.use(cors({ origin: process.env.FRONTEND_URL })); // Autorise uniquement le frontend à accéder à l'API
-app.use(apiKeyMiddleware); // Applique le middleware de vérification de la clé API
+const app = express();
+
+// Autorise uniquement le frontend à accéder à l'API
+app.use(cors({ origin: process.env.FRONTEND_URL }));
+
+// Clé d'API vérifiée seulement pour les adresses /api
+app.use("/api", apiKeyMiddleware);
+
+// Routes de l'API
 app.use("/api/artisans", artisanRoutes);
 app.use("/api/categories", categorieRoutes);
 
+// En ligne : envoie les fichiers du site React (dossier backend/public)
+const dossierSite = path.join(__dirname, "../public");
+app.use(express.static(dossierSite));
+
+// Toutes les autres adresses
 app.use((req, res) => {
-  res.status(404).json({ message: "Route non trouvée" });
+  // Adresse d'API inconnue : erreur 404 en JSON
+  if (req.path.startsWith("/api")) {
+    return res.status(404).json({ message: "Route non trouvée" });
+  }
+  // Adresse du site (ex : /artisan/5) : on envoie le site, React Router affiche la bonne page
+  res.sendFile(path.join(dossierSite, "index.html"));
 });
 
 module.exports = app;
